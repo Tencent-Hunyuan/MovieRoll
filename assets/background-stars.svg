@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="#c9ddff">
+  <g opacity=".8">
+    <circle cx="45" cy="74" r="2.52"/>
+    <circle cx="242" cy="136" r="1.47"/>
+    <circle cx="524" cy="217" r="1.47"/>
+    <circle cx="861" cy="178" r="1.26"/>
+    <circle cx="1241" cy="205" r="1.47"/>
+    <circle cx="1556" cy="329" r="1.68"/>
+    <circle cx="296" cy="378" r="1.26"/>
+    <circle cx="791" cy="418" r="1.26"/>
+    <circle cx="1294" cy="412" r="1.47"/>
+    <circle cx="181" cy="680" r="1.89"/>
+    <circle cx="633" cy="721" r="1.47"/>
+    <circle cx="1127" cy="768" r="1.26"/>
+    <circle cx="1554" cy="834" r="1.68"/>
+    <circle cx="102" cy="595" r="1.47"/>
+    <circle cx="570" cy="367" r="1.47"/>
+    <circle cx="932" cy="304" r="1.26"/>
+    <circle cx="1338" cy="541" r="1.47"/>
+    <circle cx="448" cy="666" r="1.26"/>
+  </g>
+  <defs>
+    <polygon id="star" points="0,-6 1.35,-1.35 5,0 1.35,1.35 0,6 -1.35,1.35 -5,0 -1.35,-1.35"/>
+  </defs>
+  <g fill="#bcd8ff" opacity=".72">
+    <use href="#star" x="97" y="194.5"/>
+    <use href="#star" x="1391" y="750.5"/>
+  </g>
+</svg>

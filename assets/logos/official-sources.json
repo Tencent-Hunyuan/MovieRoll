@@ -1,0 +1,26 @@
+[
+  {
+    "file": "pku-reverse.png",
+    "source": "https://vim.pku.edu.cn/docs/20240527144451726806.zip",
+    "retrieved": "2026-11-07",
+    "sha256": "797b434052f37a3f937e04f5e3979db3374b55b8980578017248f6f96558f9d9",
+    "note": "Official horizontal emblem + Chinese/English names, reversed white PNG from the official download archive.",
+    "processing": "Byte-for-byte copy; no recoloring, clipping, cropping, or filters."
+  },
+  {
+    "file": "hkust-white.svg",
+    "source": "https://cse.hkust.edu.hk/assets/img/hkust_logo_small.svg",
+    "retrieved": "2026-11-07",
+    "sha256": "38c1175bd76ed111c29d8de01497f77fbd59c4d1203997b146291e50624908f5",
+    "note": "Official white English abbreviated university combination logo, served by HKUST CSE. White is specified for dark backgrounds by the university brand guidelines.",
+    "processing": "Byte-for-byte copy; no recoloring, clipping, cropping, or filters."
+  },
+  {
+    "file": "hunyuan-white.svg",
+    "source": "https://hunyuan-blog-web-prod-1258344703.cos.ap-guangzhou.myqcloud.com/assets/hy-logo-en-white-X3VpjO5t.svg",
+    "retrieved": "2026-11-07",
+    "sha256": "c034f3ddc5fdba5dfa0b9e79192e4c52f7412f909d8044b38fb7c960bdd6a155",
+    "note": "Official English white-wordmark variant referenced by hunyuan.tencent.com. Contains the official colored symbol and white lettering.",
+    "processing": "Byte-for-byte copy; no recoloring, clipping, cropping, or filters."
+  }
+]

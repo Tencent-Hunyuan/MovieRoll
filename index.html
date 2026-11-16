@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b0e14">
+  <meta name="description" content="MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos. Showcases, comparisons, and method details.">
+  <meta property="og:title" content="MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos"><meta property="og:description" content="A Systematic Framework for Rolling Out Long-Form Videos"><meta property="og:type" content="website">
+  <title>MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos</title>
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/dm-serif-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="assets/favicon-m-32.png?v=20261115-original-m" type="image/png" sizes="32x32"><link rel="icon" href="assets/favicon-m-64.png?v=20261115-original-m" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="assets/favicon-m-180.png?v=20261115-original-m"><link rel="stylesheet" href="styles.css?v=20261115-original-wordmark"><script defer src="content-loader.js"></script><script defer src="app.js?v=20261116-paper-consistency"></script><script defer src="atmosphere.js?v=20261107-offline"></script>
+</head>
+<body>
+<div class="site-backdrop" aria-hidden="true">
+  <span class="backdrop-glow backdrop-blue"></span><span class="backdrop-glow backdrop-violet"></span><span class="backdrop-glow backdrop-teal"></span>
+  <svg class="dream-defs" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="dream-top" viewBox="0 0 48 56"><path d="M22 5h4v10h-4zM22 15C14 18 8 23 5 29l19 22 19-22c-3-6-9-11-17-14"/><ellipse cx="24" cy="29" rx="19" ry="5"/><path d="M10 25c8 4 20 4 28 0M24 35v16"/></symbol>
+    <symbol id="dream-orbit" viewBox="0 0 48 48"><circle cx="24" cy="24" r="7"/><ellipse cx="24" cy="24" rx="22" ry="10" transform="rotate(-30 24 24)"/><circle cx="42" cy="15" r="2.5" fill="currentColor"/></symbol>
+    <symbol id="dream-moon" viewBox="0 0 40 40"><path d="M28 5A16 16 0 1 0 35 29 15 15 0 0 1 28 5Z"/></symbol>
+    <symbol id="dream-crystal" viewBox="0 0 36 48"><path d="m18 3 13 21-13 21L5 24 18 3Zm0 0v42M5 24h26"/></symbol>
+  </defs></svg>
+  <span class="dream-symbol dream-top-left"><svg viewBox="0 0 48 56"><use href="#dream-top"/></svg></span>
+  <span class="dream-symbol dream-moon-left"><svg viewBox="0 0 40 40"><use href="#dream-moon"/></svg></span>
+</div>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="hero-atmosphere" id="hero-atmosphere" aria-hidden="true"><div class="ambient-glow glow-one"></div><div class="ambient-glow glow-two"></div><div class="ambient-glow glow-three"></div>
+  <div class="rolling-reels" id="rolling-reels"></div>
+  <div class="ambient-particles" id="ambient-particles"></div></div>
+<div class="page-atmosphere is-paused" id="page-atmosphere" aria-hidden="true">
+  <div class="page-glow page-glow-left"></div><div class="page-glow page-glow-right"></div>
+  <div class="roll-guide guide-left"><span class="guide-window"></span></div>
+  <div class="roll-guide guide-right"><span class="guide-window"></span></div>
+</div>
+<main id="main">
+  <section class="paper-header wrap" aria-labelledby="paper-title">
+    <h1 id="paper-title" aria-label="MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos"><span class="paper-name" role="img" aria-label="MovieRoll"><span class="wordmark-original" aria-hidden="true"><img src="assets/logos/movieroll-project-original.png" alt="" width="2135" height="357"></span></span><span class="paper-title">A Systematic Framework for Rolling Out Long-Form Videos</span></h1>
+    <div class="authors" id="authors"></div>
+    <div class="affiliations"><span><sup>1</sup> Peking University</span><span><sup>2</sup> Tencent Hunyuan</span><span><sup>3</sup> The Hong Kong University of Science and Technology</span></div>
+    <p class="contribution">* Equal contribution &nbsp; § Project leader &nbsp; † Corresponding author<br>‡ Work done during internship at Tencent Hunyuan</p>
+    <div class="institution-logos" aria-label="Author institutions">
+      <a href="https://www.pku.edu.cn/" target="_blank" rel="noopener" aria-label="Peking University"><img class="institution-pku" src="assets/logos/pku.png" alt="Peking University" width="394" height="111"></a>
+      <a href="https://hunyuan.tencent.com/" target="_blank" rel="noopener" aria-label="Tencent Hunyuan"><img class="institution-hunyuan" src="assets/logos/hunyuan.png" alt="Tencent Hunyuan" width="2362" height="685"></a>
+      <a href="https://hkust.edu.hk/" target="_blank" rel="noopener" aria-label="The Hong Kong University of Science and Technology"><img class="institution-hkust" src="assets/logos/hkust.png" alt="The Hong Kong University of Science and Technology" width="237" height="59"></a>
+    </div>
+    <div class="resource-cards" id="resource-cards" aria-label="Paper and project resources"></div>
+  </section>
+  <section class="demo-section wrap" id="demo" aria-labelledby="demo-title">
+    <div class="section-heading"><h2 id="demo-title">Demo</h2></div>
+    <div id="demo-slot" class="demo-slot"><div class="empty-demo"><span class="film-icon" aria-hidden="true"></span><h3>Demo video</h3><p>Coming soon</p></div></div>
+    <details class="demo-credit"><summary>Music credits</summary><p>“Technology Business” by <a href="https://mixaund.bandcamp.com" target="_blank" rel="noopener">Mixaund</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Edited for length, loudness and fades. <a href="assets/videos/MUSIC-CREDIT.txt">Full attribution and source</a>.</p></details>
+  </section>
+  <section class="section wrap" id="showcase" aria-labelledby="single-title">
+    <div class="section-heading"><h2 id="single-title">Single-Event Showcases</h2><p>Explore continuous generation from a single prompt.</p></div>
+    <div class="showcase-group"><div class="group-heading"><h3>MovieRoll-Base</h3></div><div id="single-base" class="showcase-grid"></div></div>
+    <div class="showcase-group"><div class="group-heading"><h3>MovieRoll-Distilled</h3></div><div id="single-distilled"></div></div>
+  </section>
+  <section class="section section-tint" id="multi-event" aria-labelledby="multi-title"><div class="wrap">
+    <div class="section-heading"><h2 id="multi-title">Multi-Event Showcases</h2><p>Continue a scene while introducing new event prompts.</p></div>
+    <div class="showcase-group"><div class="group-heading"><h3>MovieRoll-Base</h3></div><div id="multi-base" class="showcase-grid"></div></div>
+    <div class="showcase-group"><div class="group-heading"><h3>MovieRoll-Distilled</h3></div><div id="multi-distilled" class="showcase-grid"></div></div>
+  </div></section>
+  <section class="section wrap" id="compare" aria-labelledby="comparison-title">
+    <div class="section-heading"><h2 id="comparison-title">Comparisons with Other Methods</h2><p>Five cases compare generation under shared prompts and target durations. Every method is displayed directly below.</p></div>
+    <div id="single-comparisons"><h3 class="comparison-family">Single-Event Generation</h3></div>
+    <div id="multi-comparisons"><h3 class="comparison-family">Multi-Event Generation</h3></div>
+    <section id="user-study" aria-labelledby="user-study-title">
+      <h3 class="comparison-family" id="user-study-title">User Study</h3>
+      <p class="method-description">In a paired study, 59 professionals compared videos generated from the same prompt and chose a preferred video or a tie. At least three experts evaluated each pair. The charts report wins, ties, and losses from the perspective of MovieRoll-Distilled against each baseline.</p>
+      <div id="user-study-figures"></div>
+    </section>
+  </section>
+  <section class="section section-tint" id="method" aria-labelledby="method-title"><div class="wrap">
+    <div class="section-heading"><h2 id="method-title">Method</h2><p>A base-to-distilled framework combining streaming fine-tuning, long-rollout distillation, and long-horizon inference.</p></div>
+    <div id="method-figures"></div>
+    <article class="method-block benchmark-block" aria-labelledby="benchmark-title">
+      <h3 id="benchmark-title">Benchmark Performance</h3>
+      <p class="method-description">We evaluate single-event generation at 10s, 30s, and 60s, and multi-event generation at 30s and 60s. HeliosBench rates visual quality, dynamics, smoothness, semantic alignment, and naturalness, together with drift over time. MovieRoll-Distilled obtains the highest total score among the evaluated methods in each reported setting. The table retains all method rows and individual ratings so that the overall score can be read alongside the underlying dimensions. Select a task and duration to inspect its results.</p>
+      <div class="results-controls"><label for="results-setting">Evaluation setting</label><select id="results-setting"><option value="single_event:10">Single event · 10 seconds</option><option value="single_event:30" selected>Single event · 30 seconds</option><option value="single_event:60">Single event · 60 seconds</option><option value="multi_event:30">Multi-event · 30 seconds / 3 events</option><option value="multi_event:60">Multi-event · 60 seconds / 6 events</option></select></div>
+      <div class="table-scroller" tabindex="0" role="region" aria-label="Benchmark ratings; scroll horizontally for all metrics"><table id="results-table"></table></div>
+      <p class="section-note">Higher ratings are better, including drift ratings. Total is the weighted sum. Single-event and multi-event evaluation use 200 and 100 prompts, respectively. MovieRoll-Base is not evaluated at 60 seconds. See the paper for the full protocol.</p>
+    </article>
+  </div></section>
+  <section class="section wrap citation-section" id="citation" aria-labelledby="citation-title">
+    <div class="section-heading"><h2 id="citation-title">Citation</h2></div>
+    <div class="citation-box"><div class="citation-toolbar"><span>BibTeX</span><button id="copy-citation" type="button">Copy citation</button></div><pre><code id="citation-code"></code></pre></div>
+    <p id="citation-status" role="status" aria-live="polite"></p>
+  </section>
+</main>
+<dialog class="figure-lightbox" id="figure-lightbox" aria-labelledby="lightbox-title">
+  <div class="lightbox-toolbar"><h2 id="lightbox-title">Method figure</h2><button id="close-figure" type="button" aria-label="Close enlarged figure" title="Close">×</button></div>
+  <div class="lightbox-viewport" id="lightbox-viewport"><button class="lightbox-image-button" id="zoom-figure" type="button" aria-label="Zoom into figure" aria-pressed="false"><img id="lightbox-image" alt=""></button></div>
+  <p class="lightbox-help" id="lightbox-help">Click or tap the image to zoom · Esc to close</p>
+</dialog>
+<footer class="site-footer wrap"><span>MovieRoll</span><p>Peking University · Tencent Hunyuan · HKUST</p><a href="#main">Back to top ↑</a></footer>
+<p id="load-error" hidden>Could not load page content. Please refresh the page using the local preview server.</p>
+</body>
+</html>

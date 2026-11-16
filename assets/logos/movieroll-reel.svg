@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>MovieRoll film reel</title>
+  <path d="M28 47c0 10 8 12 17 10h11" fill="none" stroke="#87b3f5" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="29" cy="27" r="23" fill="#edf3fd"/>
+  <circle cx="29" cy="27" r="19.5" fill="#182330" stroke="#87b3f5" stroke-width="1.5"/>
+  <g fill="#edf3fd">
+    <circle cx="29" cy="14" r="5"/>
+    <circle cx="41.36" cy="22.98" r="5"/>
+    <circle cx="36.64" cy="37.52" r="5"/>
+    <circle cx="21.36" cy="37.52" r="5"/>
+    <circle cx="16.64" cy="22.98" r="5"/>
+  </g>
+  <circle cx="29" cy="27" r="3.2" fill="#87b3f5"/>
+  <g fill="#0b0e14"><path d="M42 55h3v4h-3zM49 54h3v4h-3z"/></g>
+</svg>
