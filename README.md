@@ -19,6 +19,7 @@
 [![Models](https://img.shields.io/badge/%F0%9F%A4%97_Models-Hugging_Face-yellow)](https://huggingface.co/yunyangge/MovieRoll)
 [![SGLang](https://img.shields.io/badge/Backend-SGLang_Diffusion-orange)](./sglang_movieroll/README.md)
 [![vLLM-Omni](https://img.shields.io/badge/Backend-vLLM--Omni-blue)](./vllm_omni_movieroll/README.md)
+[![Reactor Runtime](https://img.shields.io/badge/Backend-Reactor_Runtime-7B61FF)](./reactor/README.md)
 [![License](https://img.shields.io/badge/License-Tencent_Hunyuan_Community-green)](./LICENSE)
 
 </div>
@@ -29,6 +30,7 @@ https://github.com/user-attachments/assets/2d4287cd-ae78-4870-8cd9-fec0edb21ecf
 
 ## 🔥 News!
 
+- **[2026.11.18]** 🚀 Support [Reactor Runtime](./reactor/README.md) for continuous text-to-video and image-to-video streaming with live prompt updates.
 - **[2026.11.16]** 🚀 Day-0 support for [SGLang Diffusion](./sglang_movieroll/README.md) and [vLLM-Omni](./vllm_omni_movieroll/README.md).
 - **[2026.11.16]** 🎉 We release the MovieRoll code!
 
@@ -237,6 +239,7 @@ The examples above use the native MovieRoll entry point. For framework integrati
 |---|---|
 | SGLang Diffusion | [Setup and inference](./sglang_movieroll/README.md) |
 | vLLM-Omni | [Setup and inference](./vllm_omni_movieroll/README.md) |
+| Reactor Runtime | [Setup and inference](./reactor/README.md) |
 
 <a id="training"></a>
 

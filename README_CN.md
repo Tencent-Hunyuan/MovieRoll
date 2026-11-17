@@ -19,6 +19,7 @@
 [![Models](https://img.shields.io/badge/%F0%9F%A4%97_Models-Hugging_Face-yellow)](https://huggingface.co/yunyangge/MovieRoll)
 [![SGLang](https://img.shields.io/badge/Backend-SGLang_Diffusion-orange)](./sglang_movieroll/README_CN.md)
 [![vLLM-Omni](https://img.shields.io/badge/Backend-vLLM--Omni-blue)](./vllm_omni_movieroll/README_CN.md)
+[![Reactor Runtime](https://img.shields.io/badge/Backend-Reactor_Runtime-7B61FF)](./reactor/README.md)
 [![License](https://img.shields.io/badge/License-Tencent_Hunyuan_Community-green)](./LICENSE)
 
 </div>
@@ -29,6 +30,7 @@ https://github.com/user-attachments/assets/2d4287cd-ae78-4870-8cd9-fec0edb21ecf
 
 ## 🔥 最新动态！
 
+- **[2026.11.18]** 🚀 支持 [Reactor Runtime](./reactor/README.md)，提供持续的文生视频、图生视频流式推理和动态 prompt 更新。
 - **[2026.11.16]** 🚀 Day-0 支持 [SGLang Diffusion](./sglang_movieroll/README_CN.md) 和 [vLLM-Omni](./vllm_omni_movieroll/README_CN.md)。
 - **[2026.11.16]** 🎉 MovieRoll 代码正式开源！
 
@@ -234,6 +236,7 @@ MovieRoll 更适合详细的长 prompt：镜头保持静止或跟随主体，动
 |---|---|
 | SGLang Diffusion | [部署与推理](./sglang_movieroll/README_CN.md) |
 | vLLM-Omni | [部署与推理](./vllm_omni_movieroll/README_CN.md) |
+| Reactor Runtime | [部署与推理](./reactor/README.md) |
 
 <a id="training"></a>
 
