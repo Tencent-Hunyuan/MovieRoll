@@ -22,8 +22,26 @@ the padded rows are filled with the query values. Larger batches are unpadded / 
 
 import torch
 from einops import rearrange
-from flash_attn import flash_attn_varlen_qkvpacked_func, flash_attn_func
-from flash_attn.bert_padding import pad_input, unpad_input
+
+try:
+    from flash_attn import flash_attn_varlen_qkvpacked_func, flash_attn_func
+    from flash_attn.bert_padding import pad_input, unpad_input
+except Exception:
+    # Resolved at the call site like the v3 wrapper below, so that importing this module (and everything that
+    # reaches `fa3_output`, which needs no kernel at all) does not require FlashAttention-2 to be installed.
+    flash_attn_varlen_qkvpacked_func = None
+    flash_attn_func = None
+    pad_input = None
+    unpad_input = None
+
+
+def _require_fa2():
+    if flash_attn_func is None:
+        raise ImportError(
+            "this code path needs FlashAttention-2 (`pip install flash-attn --no-build-isolation`); "
+            "it is separate from the FlashAttention-3 kernels used by the streaming attention"
+        )
+
 
 try:
     from flash_attn_interface import flash_attn_varlen_func as flash_attn_varlen_func_v3
@@ -46,6 +64,7 @@ def flash_attn(
     q, k, v, causal=False, dropout_p=0.0, softmax_scale=None, deterministic=False
 ):
     """FlashAttention-2 over dense, unpadded q / k / v [B, S, H, D]; returns [B, S, H, D]."""
+    _require_fa2()
     return flash_attn_func(
         q=q,
         k=k,
@@ -66,6 +85,7 @@ def flash_attn_no_pad(
     Returns [B, S, H, D].
     """
     # adapted from https://github.com/Dao-AILab/flash-attention/blob/13403e81157ba37ca525890f2f0f2137edf75311/flash_attn/flash_attention.py#L27
+    _require_fa2()
     batch_size = qkv.shape[0]
     seqlen = qkv.shape[1]
     nheads = qkv.shape[-2]

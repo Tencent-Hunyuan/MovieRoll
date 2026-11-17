@@ -10,8 +10,9 @@ omegaconf>=2.3.0
 diffusers==0.35.0
 safetensors>=0.5.3
 torchvision>=0.21.0
-huggingface-hub==0.34.0
-huggingface_hub[cli]
+# One line, not two: `huggingface_hub` and `huggingface-hub` are the same distribution, so an unpinned
+# second entry would silently upgrade past the pin and make two installs of this file disagree.
+huggingface_hub[cli]==0.34.0
 transformers[accelerate,tiktoken]==4.57.1
 wheel
 psutil
