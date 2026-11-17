@@ -1,0 +1,44 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  unit:
+    # CPU-only. The unit tests cover argument validation, config resolution, CSV parsing and the
+    # KV-cache bookkeeping -- none of which needs a GPU, checkpoints or FlashAttention. Anything that
+    # does is marked `gpu` / `weights` and skipped by the default addopts in pyproject.toml.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install CPU-only PyTorch
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Install the package without its runtime dependencies
+        # `--no-deps` on purpose: requirements.txt pins `torch>=2.6.0`, and resolving it from PyPI here
+        # would replace the CPU wheel above with the multi-gigabyte CUDA build. The subset installed next
+        # is what the unit tests import; `modelscope` and `imageio-ffmpeg` are not among them.
+        run: |
+          pip install -e . --no-deps
+          pip install einops omegaconf loguru tqdm pillow imageio numpy safetensors psutil
+          pip install diffusers accelerate transformers
+
+      - name: Import smoke test
+        # The entry point must import on a machine with no flash-attn at all; this is the regression
+        # guard for the lazy FlashAttention import.
+        run: python -c "import movieroll.generate; import movieroll.utils.flash_attn_no_pad; print('ok')"
+
+      - name: CLI smoke test
+        run: python generate_movieroll.py --help > /dev/null
+
+      - name: Unit tests
+        run: pytest -q --cov=movieroll --cov-report=term-missing

@@ -41,11 +41,27 @@ import torch
 import torch.distributed as dist
 import torch.nn.functional as F
 
-try:
-    from flash_attn_interface import flash_attn_func as flash_attn_func_v3
-    from flash_attn_interface import flash_attn_varlen_func as flash_attn_varlen_func_v3
-except Exception as e:
-    raise ImportError("streaming attention requires FlashAttention-3 (flash_attn_interface)") from e
+# FlashAttention-3 is resolved on first use instead of at import time: it is built from `hopper/` and needs an
+# sm90 GPU, so importing it eagerly made this module -- and every entry point that reaches it -- unusable on
+# A100 / RTX 4090 / RTX 5090. The absence is reported at the call site, the same way
+# `utils/flash_attn_no_pad.py` already treats its v3 wrapper.
+_fa3_kernels = None
+
+
+def _load_fa3():
+    """Return (flash_attn_func, flash_attn_varlen_func) from FlashAttention-3, importing on first call."""
+    global _fa3_kernels
+    if _fa3_kernels is None:
+        try:
+            from flash_attn_interface import flash_attn_func as func
+            from flash_attn_interface import flash_attn_varlen_func as varlen_func
+        except Exception as e:
+            raise ImportError(
+                "attention backend 'fa3' needs FlashAttention-3 (flash_attn_interface), which requires a "
+                "Hopper GPU (sm90); install it as described in the README"
+            ) from e
+        _fa3_kernels = (func, varlen_func)
+    return _fa3_kernels
 
 from movieroll.models.transformers.modules.padding import prefix_pack, prefix_unpack
 from movieroll.utils.flash_attn_no_pad import fa3_output
@@ -71,6 +87,10 @@ def set_attention_backend(name):
             import sageattention  # noqa: F401
         except ImportError as e:
             raise ImportError("--attention-backend sage needs the `sageattention` package (SageAttention 2)") from e
+    # Resolve the FlashAttention-3 kernels now rather than at the first attention call, so a missing Hopper
+    # kernel is reported while the arguments are being parsed instead of mid-rollout.
+    if name == "fa3":
+        _load_fa3()
     _attention_backend = name
 
 
@@ -79,6 +99,7 @@ def _attention(query, key, value):
     if _attention_backend == "sage":
         from sageattention import sageattn
         return sageattn(query, key, value, tensor_layout="NHD", is_causal=False)
+    flash_attn_func_v3, _ = _load_fa3()
     return fa3_output(flash_attn_func_v3(query, key, value, causal=False))
 
 
@@ -96,6 +117,7 @@ def _attention_varlen(query, key, value, *, cu_seqlens_q, cu_seqlens_k, max_seql
                     query[None, q0:q1], key[None, k0:k1], value[None, k0:k1], tensor_layout="NHD", is_causal=False,
                 )[0]
         return out
+    _, flash_attn_varlen_func_v3 = _load_fa3()
     return fa3_output(flash_attn_varlen_func_v3(
         query, key, value,
         cu_seqlens_q=cu_seqlens_q, cu_seqlens_k=cu_seqlens_k,
