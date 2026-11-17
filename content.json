@@ -3167,7 +3167,7 @@
     "resourceIssue": "https://github.com/Tencent-Hunyuan/MovieRoll/issues/1",
     "bytes": 74481954
   },
-  "citation": "@misc{ge2026movieroll,\n  title  = {MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos},\n  author = {Yunyang Ge and Weijie Kong and Ryan Xu and Yue Wu and Qi Tian and Jiangfeng Xiong and Bin Lin and Mingzhe Zheng and Shenghai Yuan and Zheyuan Liu and Jianwei Zhang and Li Yuan},\n  year   = {2026},\n  url    = {https://github.com/Tencent-Hunyuan/MovieRoll}\n}",
+  "citation": "@misc{ge2026movierollsystematicframeworkrolling,\n      title={MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos},\n      author={Yunyang Ge and Weijie Kong and Ryan Xu and Yue Wu and Qi Tian and Jiangfeng Xiong and Bin Lin and Mingzhe Zheng and Shenghai Yuan and Zheyuan Liu and Jianwei Zhang and Li Yuan},\n      year={2026},\n      eprint={2611.21339},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2611.21339},\n}",
   "showcases": {
     "singleBase": [
       {
@@ -4709,7 +4709,7 @@
     {
       "label": "Paper",
       "icon": "arxiv",
-      "href": "assets/paper/movieroll.pdf",
+      "href": "https://arxiv.org/abs/2611.21339",
       "detail": "Read the paper"
     },
     {
